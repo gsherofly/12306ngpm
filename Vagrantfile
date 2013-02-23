@@ -13,6 +13,7 @@ Vagrant::Config.run do |config|
 
     server_config.vm.network :hostonly, "192.168.2.10"
     server_config.vm.forward_port 8888, 12306
+    server_config.vm.forward_port 5005, 5005
   end
 
   config.vm.define :client do |client_config|
@@ -25,6 +26,6 @@ Vagrant::Config.run do |config|
     end
 
     client_config.vm.network :hostonly, "192.168.2.11"
-    client_config.vm.forward_port 9999, 12307
+    client_config.vm.forward_port 5005, 5005
   end
 end
